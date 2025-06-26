@@ -74,6 +74,8 @@ export class OffersService {
       throw new NotFoundException('Предложение не найдено');
     }
 
-    return offer;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password, ...result } = offer.user;
+    return { ...offer, user: result };
   }
 }

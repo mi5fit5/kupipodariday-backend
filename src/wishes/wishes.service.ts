@@ -125,12 +125,6 @@ export class WishesService {
       throw new NotFoundException('Пожелание не найдено');
     }
 
-    if (wish.owner.id == user.id) {
-      throw new BadRequestException(
-        'Вы не можете скопировать собственное пожелание',
-      );
-    }
-
     this.wishRepository.update(wishId, { copied: wish.copied + 1 });
 
     delete wish.id;

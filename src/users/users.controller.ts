@@ -29,7 +29,9 @@ export class UsersController {
       throw new NotFoundException('Пользователь не найден');
     }
 
-    return userData;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password, ...result } = userData;
+    return result;
   }
 
   // Обновление профиля текущего пользователя
